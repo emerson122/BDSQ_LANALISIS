@@ -1,3 +1,5 @@
+
+-- descomentar para crear la base de datos 
 /*CREATE DATABASE systemhtours; */
 use systemhtours;
 
