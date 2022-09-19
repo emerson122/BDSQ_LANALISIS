@@ -322,12 +322,13 @@ CREATE TABLE `tbl_ms_usuario` (
 -- Estructura de tabla para la tabla `tbl_objetos`
 --
 
-CREATE TABLE TBL_OBJETOS(
-  `ID_OBJETOS` BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL 
+CREATE TABLE `tbl_objetos` (
+  `COD_OBJETO` bigint NOT NULL,
   `OBJETO` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `DESCRIPCION` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `DES_OBJETO` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `TIP_OBJETO` varchar(15) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 -- --------------------------------------------------------
 
