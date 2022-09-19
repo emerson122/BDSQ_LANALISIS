@@ -29,26 +29,6 @@ CREATE TABLE TBL_PERIODOS (
 CHARACTER SET UTF8
 COLLATE UTF8_UNICODE_CI;
 
-CREATE TABLE `tbl_ms_usuarios` (
-  `COD_USUARIO` bigint(20) NOT NULL,
-  `USUARIO` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `NOM_USR` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `EST_USUARIO` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `COD_ROL` bigint(20) NOT NULL,
-  `FEC_ULTIMA_CONEXION` date NOT NULL,
-  `PRE_CONTESTADAS` bigint(20) NOT NULL,
-  `PRIMER_INGRESO` bigint(20) NOT NULL,
-  `FEC_VENCIMIENTO` date NOT NULL,
-  `CORREO_ELECTRONICO` varchar(50) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- Indices de la tabla `tbl_ms_usuarios`
---
-ALTER TABLE `tbl_ms_usuarios`
-  ADD PRIMARY KEY (`COD_USUARIO`),
-  ADD KEY `FK_USRROL` (`COD_ROL`);
-
-
 ALTER TABLE
 TBL_PERIODOS
 ADD CONSTRAINT FK_PERUSU
@@ -288,62 +268,78 @@ Create table TBL_MS_BITACORAS (
 ,CONSTRAINT `FK_BITOBJ` FOREIGN KEY (`COD_OBJETO`) REFERENCES `tbl_objetos` (`COD_OBJETO`) ON DELETE CASCADE
 ) ENGINE=INNODB CHARACTER SET UTF8 COLLATE UTF8_UNICODE_CI;
 
-CREATE TABLE `tbl_ms_hist_contraseña` (
-  `COD_HIST`   BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL
-  ,`COD_USUARIO` bigint NOT NULL
-  ,`CONTRASEÑA` varchar(100) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- ////////////////////////////////////////////////////////
 
+CREATE TABLE `TBL_MS_ROLES` (
+  `COD_ROL`     BIGINT(20)    NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'LLAVE PRIMARIA MS ROLES',
+  `ROL`         VARCHAR(30)   NOT NULL DEFAULT ''                 COMMENT 'ROL USUARIO',
+  `DES_ROL`     VARCHAR(50)   NOT NULL DEFAULT ''                 COMMENT 'DESCRIPCION ROL'
+)
+ENGINE=INNODB
+CHARACTER SET UTF8
+COLLATE UTF8_UNICODE_CI
+COMMENT 'TABLA MS ROLES';
 
+-- ////////////////////////////////////////////////////////
 
--- --------------------------------------------------------
+CREATE TABLE `TBL_MS_USR` (
+  `COD_USR`       BIGINT(20)    NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'LLAVE PRIMARIA MS USUARIO',
+  `USR`           VARCHAR(50)   NOT NULL DEFAULT ''                 COMMENT 'USUARIO',
+  `NOM_USR`       VARCHAR(100)  NOT NULL DEFAULT ''                 COMMENT 'NOMBRE USUARIO',
+  `EST_USR`       ENUM('BLOQUEADO', 'ACTIVO','INACTIVO','NUEVO')  NOT NULL DEFAULT 'ACTIVO' COMMENT 'ESTADO USUARIO',
+  `COD_ROL`       BIGINT(20)    NOT NULL                            COMMENT 'CODIGO ROL',
+  `FEC_ULT_CONN`  DATE          NOT NULL                            COMMENT 'FECHA ULTIMA CONEXION',
+  `PREG_RES`      BIGINT(20)    NOT NULL                            COMMENT 'PREGUNTA RESPONDIDA',
+  `PRIMER_ACC`    BIGINT(20)    NOT NULL                            COMMENT 'PRIMER ACCESO',
+  `CORREO`        VARCHAR(100)  NOT NULL DEFAULT ''                 COMMENT 'CORREO ELECTRONICO',
+   CONSTRAINT `FK_COD_ROL` FOREIGN KEY (`COD_ROL`) REFERENCES `TBL_MS_ROLES` (`COD_ROL`) ON DELETE CASCADE
+  )
+ENGINE=INNODB
+CHARACTER SET UTF8
+COLLATE UTF8_UNICODE_CI
+COMMENT 'TABLA MS USUARIO';
 
---
--- Estructura de tabla para la tabla `tbl_ms_preguntas`
---
+-- /////////////////////////////////////////////////////////
 
+CREATE TABLE `TBL_MS_PREG` (
+  `COD_PREG`  BIGINT(20)   NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'LLAVE PRIMARIA MS PREGUNTA',
+  `PREGUNTA`  VARCHAR(100)  NOT NULL DEFAULT ''                COMMENT 'PREGUNTA'
+)
+ENGINE=INNODB
+CHARACTER SET UTF8
+COLLATE UTF8_UNICODE_CI
+COMMENT 'TABLA MS PREGUNTA';
 
-CREATE TABLE `tbl_ms_preguntas` (
-  `COD_PREGUNTA` bigint NOT NULL,
-  `PREGUNTA` varchar(100) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+-- /////////////////////////////////////////////////////////
 
--- --------------------------------------------------------
+CREATE TABLE `TBL_MS_PREG_USR` (
+  `COD_PREG`     BIGINT(20)    NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'LLAVE PRIMARIA MS PREGUNTA USUARIO',
+  `COD_USR`      BIGINT(20)    NOT NULL                            COMMENT 'CODIGO USUARIO',
+  `RESPUESTA`    VARCHAR(100)  NOT NULL DEFAULT ''                 COMMENT 'RESPUESTA',
+  CONSTRAINT `FK_COD_USR` FOREIGN KEY (`COD_USR`) REFERENCES `TBL_MS_USR` (`COD_USR`) ON DELETE CASCADE,
+  CONSTRAINT `FK_PREG_USR` FOREIGN KEY (`COD_PREG`) REFERENCES `TBL_MS_PREG` (`COD_PREG`) ON DELETE CASCADE
+)
+ENGINE=INNODB
+CHARACTER SET UTF8
+COLLATE UTF8_UNICODE_CI
+COMMENT 'TABLA MS PREGUNTA USUARIO';
 
---
--- Estructura de tabla para la tabla `tbl_ms_preguntas_usuarios`
---
+-- ////////////////////////////////////////////////////////
 
+CREATE TABLE `MS_HIST_CONTRASEGNA` (
+  `COD_HIST_CONTRA` BIGINT(20)    NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'LLAVE PRIMARIA MS HISTORIAL CONTRASEÑA',
+  `COD_USR`         BIGINT(20)    NOT NULL                            COMMENT 'CODIGO USUARIO',
+  `CONTRASEGNA`     VARCHAR(32)   NOT NULL DEFAULT ''                 COMMENT 'CONTRASEÑA',
+  CONSTRAINT `FK_USR` FOREIGN KEY (`COD_USR`) REFERENCES `TBL_MS_USR` (`COD_USR`) ON DELETE CASCADE
+)
+ENGINE=INNODB
+CHARACTER SET UTF8
+COLLATE UTF8_UNICODE_CI
+COMMENT 'TABLA MS CONTRASEÑA';
 
+-- ///////////////////////////////////////////////
 
-CREATE TABLE `tbl_ms_preguntas_usuarios` (
-  `COD_PREUSR` bigint NOT NULL,
-  `COD_PREGUNTA` bigint NOT NULL,
-  `COD_USUARIO` bigint NOT NULL,
-  `RESPUESTA` varchar(100) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tbl_ms_roles`
---
-
-CREATE TABLE `tbl_ms_roles` (
-  `COD_ROL` bigint NOT NULL,
-  `ROL` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `DES_ROL` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `CREADO_POR` varchar(100) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `tbl_objetos`
 --
 
@@ -380,38 +376,8 @@ CREATE TABLE `tbl_roles_objetos` (
   `MOD_POR` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT 'MODIFICADO POR'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
---
-
--- Indices de la tabla `tbl_ms_hist_contraseña`
---
-ALTER TABLE `tbl_ms_hist_contraseña`
-  ADD KEY `FK_HISTUSR` (`COD_USUARIO`);
-
---
 
 
--- Indices de la tabla `tbl_ms_preguntas`
---
-ALTER TABLE `tbl_ms_preguntas`
-  ADD PRIMARY KEY (`COD_PREGUNTA`);
-
---
--- Indices de la tabla `tbl_ms_preguntas_usuarios`
---
-ALTER TABLE `tbl_ms_preguntas_usuarios`
-  ADD KEY `FK_PREGXUSER` (`COD_PREUSR`),
-  ADD KEY `FK_PREUSRUSER` (`COD_USUARIO`);
-
---
--- Indices de la tabla `tbl_ms_roles`
---
-ALTER TABLE `tbl_ms_roles`
-  ADD PRIMARY KEY (`COD_ROL`);
-
---
-
---
 
 --
 -- Indices de la tabla `tbl_permisos`
@@ -431,30 +397,13 @@ ALTER TABLE `tbl_roles_objetos`
 -- Restricciones para tablas volcadas
 --
 
---
--- Filtros para la tabla `tbl_ms_hist_contraseña`
---
-ALTER TABLE `tbl_ms_hist_contraseña`
-  ADD CONSTRAINT `FK_HISTUSR` FOREIGN KEY (`COD_USUARIO`) REFERENCES `tbl_ms_usuarios` (`COD_USUARIO`) ON DELETE CASCADE;
 
---
 -- Filtros para la tabla `tbl_ms_parametros`
 --
 ALTER TABLE `tbl_ms_parametros`
   ADD CONSTRAINT `FK_PARUSR` FOREIGN KEY (`COD_USUARIO`) REFERENCES `tbl_ms_usuarios` (`COD_USUARIO`) ON DELETE CASCADE;
 
---
--- Filtros para la tabla `tbl_ms_preguntas_usuarios`
---
-ALTER TABLE `tbl_ms_preguntas_usuarios`
-  ADD CONSTRAINT `FK_PREUSER` FOREIGN KEY (`COD_USUARIO`) REFERENCES `tbl_ms_usuarios` (`COD_USUARIO`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_PREGUSRMSPRE` FOREIGN KEY (`COD_PREGUNTA`) REFERENCES `tbl_ms_preguntas` (`COD_PREGUNTA`) ON DELETE CASCADE;
 
---
--- Filtros para la tabla `tbl_ms_usuarios`
---
-ALTER TABLE `tbl_ms_usuarios`
-  ADD CONSTRAINT `FK_USRROL` FOREIGN KEY (`COD_ROL`) REFERENCES `tbl_ms_roles` (`COD_ROL`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_permisos`
