@@ -1,7 +1,7 @@
 -- descomentar para crear la base de datos 
 /*
-CREATE DATABASE systemhtours2; 
-USE systemhtours2;
+CREATE DATABASE systemhtours; 
+USE systemhtours;
 */
 
 /*MODULO DE SEGURIDAD */
