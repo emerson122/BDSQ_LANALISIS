@@ -316,8 +316,10 @@ CREATE TABLE `tbl_ms_preguntas` (
 --
 
 
+
 CREATE TABLE `tbl_ms_preguntas_usuarios` (
   `COD_PREUSR` bigint NOT NULL,
+  `COD_PREGUNTA` bigint NOT NULL,
   `COD_USUARIO` bigint NOT NULL,
   `RESPUESTA` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -344,13 +346,6 @@ CREATE TABLE `tbl_ms_roles` (
 --
 -- Estructura de tabla para la tabla `tbl_objetos`
 --
-
-CREATE TABLE TBL_OBJETOS(
-  `ID_OBJETOS` BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL 
-  `OBJETO` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `DESCRIPCION` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `TIP_OBJETO` varchar(15) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -452,8 +447,8 @@ ALTER TABLE `tbl_ms_parametros`
 -- Filtros para la tabla `tbl_ms_preguntas_usuarios`
 --
 ALTER TABLE `tbl_ms_preguntas_usuarios`
-  ADD CONSTRAINT `FK_IDUSER` FOREIGN KEY (`COD_USUARIO`) REFERENCES `tbl_ms_usuarios` (`COD_USUARIO`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_PREGXUSER` FOREIGN KEY (`COD_PREUSR`) REFERENCES `tbl_ms_preguntas` (`COD_PREUSR`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_PREUSER` FOREIGN KEY (`COD_USUARIO`) REFERENCES `tbl_ms_usuarios` (`COD_USUARIO`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_PREGUSRMSPRE` FOREIGN KEY (`COD_PREGUNTA`) REFERENCES `tbl_ms_preguntas` (`COD_PREGUNTA`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_ms_usuarios`
@@ -475,9 +470,6 @@ ALTER TABLE `tbl_roles_objetos`
   ADD CONSTRAINT `FK_OBJETO` FOREIGN KEY (`COD_OBJETO`) REFERENCES `tbl_objetos` (`COD_OBJETO`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_ROL` FOREIGN KEY (`COD_ROL`) REFERENCES `tbl_ms_roles` (`COD_ROL`) ON DELETE CASCADE;
 COMMIT;
-
-
-
 
 
 
