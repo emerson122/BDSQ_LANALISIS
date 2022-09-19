@@ -256,7 +256,7 @@ CREATE TABLE `tbl_ms_parametros` (
   `COD_PARAMETRO` bigint(20) NOT NULL,
   `PARAMETRO` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `VALOR` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `ID_USUARIO` bigint(20) NOT NULL,
+  `COD_USUARIO` bigint(20) NOT NULL,
   `FECH_CREACION` date NOT NULL,
   `FECH_MODIFICACION` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -377,7 +377,7 @@ ALTER TABLE `tbl_ms_hist_contraseña`
 -- Indices de la tabla `tbl_ms_parametros`
 --
 ALTER TABLE `tbl_ms_parametros`
-  ADD KEY `FK_IDUSU` (`ID_USUARIO`);
+  ADD KEY `FK_IDUSU` (`COD_USUARIO`);
 
 ALTER TABLE `tbl_ms_parametros`
   ADD PRIMARY KEY (`COD_PARAMETRO`);
@@ -441,7 +441,7 @@ ALTER TABLE `tbl_ms_hist_contraseña`
 -- Filtros para la tabla `tbl_ms_parametros`
 --
 ALTER TABLE `tbl_ms_parametros`
-  ADD CONSTRAINT `FK_IDUSU` FOREIGN KEY (`ID_USUARIO`) REFERENCES `tbl_ms_usuario` (`ID_USUARIO`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_IDUSU` FOREIGN KEY (`COD_USUARIO`) REFERENCES `tbl_ms_usuario` (`ID_USUARIO`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_ms_preguntas_usuarios`
