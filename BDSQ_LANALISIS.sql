@@ -1,7 +1,7 @@
 
 -- descomentar para crear la base de datos 
 /*CREATE DATABASE systemhtours; */
-use systemhtours;
+
 
 /*..................................MODULO DE CUENTAS........................................*/
 /*............................LA ALEXA Y EL KEVIN............................................*/
@@ -46,7 +46,7 @@ CREATE TABLE `tbl_ms_usuarios` (
 --
 ALTER TABLE `tbl_ms_usuarios`
   ADD PRIMARY KEY (`COD_USUARIO`),
-  ADD KEY `FK_IDROL` (`COD_ROL`);
+  ADD KEY `FK_USRROL` (`COD_ROL`);
 
 
 ALTER TABLE
@@ -170,7 +170,7 @@ ALTER TABLE `tbl_ms_parametros`
   ADD PRIMARY KEY (`COD_PARAMETRO`);
 --
 ALTER TABLE `tbl_ms_parametros`
-  ADD KEY `FK_IDUSU` (`COD_USUARIO`);
+  ADD KEY `FK_PARUSR` (`COD_USUARIO`);
 
 /*..................................MODULO DE ESTADO FINANCIERO........................................*/
 /*.................................ZOILA Y EMERSON............................................*/
@@ -386,7 +386,7 @@ CREATE TABLE `tbl_roles_objetos` (
 -- Indices de la tabla `tbl_ms_hist_contraseña`
 --
 ALTER TABLE `tbl_ms_hist_contraseña`
-  ADD KEY `FK_usuario` (`COD_USUARIO`);
+  ADD KEY `FK_HISTUSR` (`COD_USUARIO`);
 
 --
 
@@ -401,7 +401,7 @@ ALTER TABLE `tbl_ms_preguntas`
 --
 ALTER TABLE `tbl_ms_preguntas_usuarios`
   ADD KEY `FK_PREGXUSER` (`COD_PREUSR`),
-  ADD KEY `FK_IDUSER` (`COD_USUARIO`);
+  ADD KEY `FK_PREUSRUSER` (`COD_USUARIO`);
 
 --
 -- Indices de la tabla `tbl_ms_roles`
@@ -417,8 +417,8 @@ ALTER TABLE `tbl_ms_roles`
 -- Indices de la tabla `tbl_permisos`
 --
 ALTER TABLE `tbl_permisos`
-  ADD KEY `FK_ROLid` (`COD_ROL`),
-  ADD KEY `FK_OBJETOid` (`COD_OBJETO`);
+  ADD KEY `FK_PERROLES` (`COD_ROL`),
+  ADD KEY `FK_PEROBJ` (`COD_OBJETO`);
 
 --
 -- Indices de la tabla `tbl_roles_objetos`
@@ -435,13 +435,13 @@ ALTER TABLE `tbl_roles_objetos`
 -- Filtros para la tabla `tbl_ms_hist_contraseña`
 --
 ALTER TABLE `tbl_ms_hist_contraseña`
-  ADD CONSTRAINT `FK_usuario` FOREIGN KEY (`COD_USUARIO`) REFERENCES `tbl_ms_usuarios` (`COD_USUARIO`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_HISTUSR` FOREIGN KEY (`COD_USUARIO`) REFERENCES `tbl_ms_usuarios` (`COD_USUARIO`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_ms_parametros`
 --
 ALTER TABLE `tbl_ms_parametros`
-  ADD CONSTRAINT `FK_IDUSU` FOREIGN KEY (`COD_USUARIO`) REFERENCES `tbl_ms_usuarios` (`COD_USUARIO`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_PARUSR` FOREIGN KEY (`COD_USUARIO`) REFERENCES `tbl_ms_usuarios` (`COD_USUARIO`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_ms_preguntas_usuarios`
@@ -454,22 +454,25 @@ ALTER TABLE `tbl_ms_preguntas_usuarios`
 -- Filtros para la tabla `tbl_ms_usuarios`
 --
 ALTER TABLE `tbl_ms_usuarios`
-  ADD CONSTRAINT `FK_IDROL` FOREIGN KEY (`COD_ROL`) REFERENCES `tbl_ms_roles` (`COD_ROL`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_USRROL` FOREIGN KEY (`COD_ROL`) REFERENCES `tbl_ms_roles` (`COD_ROL`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_permisos`
 --
 ALTER TABLE `tbl_permisos`
-  ADD CONSTRAINT `FK_OBJETOid` FOREIGN KEY (`COD_OBJETO`) REFERENCES `tbl_objetos` (`COD_OBJETO`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_ROLid` FOREIGN KEY (`COD_ROL`) REFERENCES `tbl_ms_roles` (`COD_ROL`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_PEROBJ` FOREIGN KEY (`COD_OBJETO`) REFERENCES `tbl_objetos` (`COD_OBJETO`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_PERROLES` FOREIGN KEY (`COD_ROL`) REFERENCES `tbl_ms_roles` (`COD_ROL`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_roles_objetos`
 --
 ALTER TABLE `tbl_roles_objetos`
-  ADD CONSTRAINT `FK_OBJETO` FOREIGN KEY (`COD_OBJETO`) REFERENCES `tbl_objetos` (`COD_OBJETO`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_ROL` FOREIGN KEY (`COD_ROL`) REFERENCES `tbl_ms_roles` (`COD_ROL`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_ROLOBJ` FOREIGN KEY (`COD_OBJETO`) REFERENCES `tbl_objetos` (`COD_OBJETO`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_OBJEROL` FOREIGN KEY (`COD_ROL`) REFERENCES `tbl_ms_roles` (`COD_ROL`) ON DELETE CASCADE;
 COMMIT;
+
+
+
 
 
 
@@ -478,7 +481,7 @@ COMMIT;
 
 /*
 
-/*CREACION DE TABLAS MODULO REPORTES LIBRO MAYOR*/
+/*CREACION DE TABLAS MODULO REPORTES LIBRO MAYOR
 Create table TBL_REPORTES_LM (
 COD_REPORTE      BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL
 ,NOM_REPORTE     VARCHAR(50)   NOT NULL
@@ -487,7 +490,7 @@ COD_REPORTE      BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL
 ,CONSTRAINT `FK_CODRLM` FOREIGN KEY (`COD_LIBROMAYOR`) REFERENCES `TBL_LIBRO_MAYOR` (`COD_LIBMAYOR`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-/*CREACION DE TABLAS MODULO REPORTES ESTADO DE RESULTADO*/
+/*CREACION DE TABLAS MODULO REPORTES ESTADO DE RESULTADO
 Create table TBL_REPORTES_ER (
 COD_REPORTE BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL
 ,NOM_REPORTE VARCHAR(50) NOT NULL
@@ -497,7 +500,7 @@ COD_REPORTE BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-/*CREACION DE TABLAS MODULO REPORTES BALANCE GENERAL*/
+/*CREACION DE TABLAS MODULO REPORTES BALANCE GENERAL
 Create table TBL_REPORTES_BG (
 COD_REPORTE BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL
 ,NOM_REPORTE VARCHAR(50) NOT NULL
