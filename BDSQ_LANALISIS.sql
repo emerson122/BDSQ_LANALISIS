@@ -158,8 +158,8 @@ CREATE TABLE `tbl_ms_parametros` (
   `PARAMETRO` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `VALOR` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `COD_USUARIO` bigint(20) NOT NULL,
-  `FECH_CREACION` date NOT NULL,
-  `FECH_MODIFICACION` date NOT NULL
+  `FEC_CREACION` date NOT NULL,
+  `FEC_MODIFICACION` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Indices de la tabla `tbl_ms_parametros`
