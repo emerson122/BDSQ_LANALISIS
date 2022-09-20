@@ -111,7 +111,7 @@ COMMENT 'TABLA MS CONTRASEÑA';
 /* MODULO DE MANTENIMIENTO */
 
 CREATE TABLE `tbl_permisos` (
-  `COD_ROL` bigint NOT NULL,
+  `COD_ROL` bigint  NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `COD_OBJETO` bigint NOT NULL,
   `PER_INSERCION` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
   `PER_ELIMINACION` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
@@ -121,7 +121,7 @@ CREATE TABLE `tbl_permisos` (
 
 -- //////////////////////////////////////////////////////////////////////
 CREATE TABLE `tbl_roles_objetos` (
-  `COD_ROL` bigint NOT NULL,
+  `COD_ROL` bigint  NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `COD_OBJETO` bigint NOT NULL,
   `PER_EDICION` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `PER_ELIMINAR` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -145,9 +145,6 @@ CREATE TABLE `tbl_ms_parametros` (
 -- Indices de la tabla `tbl_ms_parametros`
 --
 
-
-ALTER TABLE `tbl_ms_parametros`
-  ADD PRIMARY KEY (`COD_PARAMETRO`);
 --
 ALTER TABLE `tbl_ms_parametros`
   ADD KEY `FK_PARUSR` (`COD_USR`);
