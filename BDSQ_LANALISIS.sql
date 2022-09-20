@@ -68,7 +68,7 @@ COMMENT 'TABLA MS PREGUNTA USUARIO';
 
 
 CREATE TABLE `tbl_objetos` (
-  `COD_OBJETO` bigint NOT NULL,
+  `COD_OBJETO` bigint PRIMARY KEY AUTO_INCREMENT  NOT NULL,
   `OBJETO` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `DES_OBJETO` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `TIP_OBJETO` varchar(15) COLLATE utf8_unicode_ci NOT NULL
@@ -76,9 +76,7 @@ CREATE TABLE `tbl_objetos` (
 
 --
 -- Indices de la tabla `tbl_objetos`
---
-ALTER TABLE `tbl_objetos`
-  ADD PRIMARY KEY (`COD_OBJETO`);
+
 
 
 
