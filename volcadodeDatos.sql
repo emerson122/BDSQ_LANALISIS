@@ -1,7 +1,7 @@
 /*   Insertar datos  */
 INSERT INTO tbl_ms_roles
 (ROL, DES_ROL) 
-VALUES ('Administrador', 'Usuario con todo los privilegios');
+VALUES ('Administrador', 'Usuario con todos los privilegios');
 
 
 
