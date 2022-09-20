@@ -45,8 +45,8 @@ INSERT INTO  tbl_ms_bitacoras
 VALUES ('2022-11-06', 'USUARIO1', 1, 'DELETE', 'BORRADO_INDEBIDO', 1);
 
 
-INSERT INTO tbl_ms_hist_contrasegna
-(COD_USR, CONTRASEGNA) 
+INSERT INTO tbl_ms_hist_contrasenas
+(COD_USR, CONTRASENA) 
 VALUES (1, 'a20f0e44c7a2b7d4d2d3cc050a170a85');
 
 -- modulo cuentas
@@ -63,15 +63,21 @@ INSERT INTO tbl_cuentas
 (COD_CLASIFICACION, NUM_CUENTA, NOM_CUENTA) 
 VALUES (1, '1.1', 'Caja');
 
+INSERT INTO tbl_estados_cuentas
+(COD_CUENTA, EST_CUENTA) 
+VALUES (1, 'INGRESADA');
+
+
 INSERT INTO tbl_subcuentas
 (COD_CLASIFICACION, NUM_SUBCUENTA, NOM_SUBCUENTA, COD_CUENTA) 
 VALUES (1, '1.1.1', 'Efectivo', 1);
 
+INSERT INTO tbl_estados_subcuentas
+(COD_SUBCUENTA, EST_SUBCUENTAS) 
+VALUES (1, 'INGRESADA');
 
-/*   Actualizar  datos  */
+INSERT INTO tbl_libros_diarios
+(COD_CUENTA, COD_SUBCUENTA, COD_ESTADO, NUM_SUBCUENTA, NOM_SUBCUENTA, SAL_DEBE, SAL_HABER, FEC_LIBDIARIO) 
+VALUES (1, 1, 1, '1.1.1', 'Efectivo', 0, 250000, '2022-05-12');
 
-
-/* Seleccionar Datos */
-
-
-/*   Eliminar datos  */
+-- SE LE HACE UN UPDATE A ESTA SUBCUENTA QUE SE INGRESO 
