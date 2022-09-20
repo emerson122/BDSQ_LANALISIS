@@ -1,7 +1,7 @@
 /*   Insertar datos  */
 INSERT INTO tbl_ms_roles
 (ROL, DES_ROL) 
-VALUES ('Administrador', 'Usuario con todo los privilegios');
+VALUES ('Administrador', 'Usuario con todos los privilegios');
 
 
 
@@ -80,4 +80,3 @@ INSERT INTO tbl_libros_diarios
 (COD_CUENTA, COD_SUBCUENTA, COD_ESTADO, NUM_SUBCUENTA, NOM_SUBCUENTA, SAL_DEBE, SAL_HABER, FEC_LIBDIARIO) 
 VALUES (1, 1, 1, '1.1.1', 'Efectivo', 0, 250000, '2022-05-12');
 
--- SE LE HACE UN UPDATE A ESTA SUBCUENTA QUE SE INGRESO 
