@@ -5,5 +5,5 @@
 
 <h2>BD IMPLEMENTACION DE SISTEMAS</h2>
 
-<center> <h4> Version 2.3 </h4> </center>
+<center> <h4> Version 2.4 </h4> </center>
 
