@@ -63,7 +63,7 @@ INSERT INTO tbl_cuentas
 (COD_CLASIFICACION, NUM_CUENTA, NOM_CUENTA) 
 VALUES (1, '1.1', 'Caja');
 
-INSERT INTO systemhtours2.tbl_subcuentas
+INSERT INTO tbl_subcuentas
 (COD_CLASIFICACION, NUM_SUBCUENTA, NOM_SUBCUENTA, COD_CUENTA) 
 VALUES (1, '1.1.1', 'Efectivo', 1);
 
