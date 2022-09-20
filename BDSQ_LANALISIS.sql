@@ -96,10 +96,10 @@ Create table TBL_MS_BITACORAS (
 -- //////////////////////////////////////////////////////
 
 
-CREATE TABLE `TBL_MS_HIST_CONTRASEGNA` (
+CREATE TABLE `TBL_MS_HIST_CONTRASENA` (
   `COD_HIST_CONTRA` BIGINT(20)    NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'LLAVE PRIMARIA MS HISTORIAL CONTRASEÑA',
   `COD_USR`         BIGINT(20)    NOT NULL                            COMMENT 'CODIGO USUARIO',
-  `CONTRASEGNA`     VARCHAR(32)   NOT NULL DEFAULT ''                 COMMENT 'CONTRASEÑA',
+  `CONTRASENA`     VARCHAR(32)   NOT NULL DEFAULT ''                 COMMENT 'CONTRASEÑA',
   CONSTRAINT `FK_USR` FOREIGN KEY (`COD_USR`) REFERENCES `TBL_MS_USR` (`COD_USR`) ON DELETE CASCADE
 )
 ENGINE=INNODB
@@ -134,7 +134,7 @@ CREATE TABLE `tbl_roles_objetos` (
 
 -- ///////////////////////////////////////////////////
 CREATE TABLE `tbl_ms_parametros` (
-  `COD_PARAMETRO` bigint NOT NULL,
+  `COD_PARAMETRO` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `PARAMETRO` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `VALOR` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `COD_USR` bigint(20) NOT NULL,
