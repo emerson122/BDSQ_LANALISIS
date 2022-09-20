@@ -3,7 +3,7 @@
 /*   Actualizar  datos  */
 
 
-/*   Eliminar datos  */
-
-
 /* Seleccionar Datos */
+
+
+/*   Eliminar datos  */
