@@ -1,4 +1,6 @@
 /*   Insertar datos  */
+
+/* -------------------------------------------------------------------- MODULO DE SEGURIDAD ------------------------------------------ */
 INSERT INTO tbl_ms_roles
 (ROL, DES_ROL) 
 VALUES ('Administrador', 'Usuario con todo los privilegios');
@@ -29,8 +31,6 @@ INSERT INTO tbl_permisos
 (COD_ROL, COD_OBJETO, PER_INSERCION, PER_ELIMINACION, PER_ACTUALIZACION, PER_CONSULTAR) 
 VALUES (1, 1, '0', '0', '0', '1');
 
-
-
 INSERT INTO tbl_roles_objetos
 ( COD_OBJETO, PER_EDICION, PER_ELIMINAR, PER_ACTUALIZAR, FEC_CREACION, CREADO_POR, FEC_MODIFICACION, MOD_POR) 
 VALUES ( 1, '1', '1', '1', '2022-09-09', 'USUARIO1', '2022-09-19', 'USUARIO1');
@@ -49,7 +49,8 @@ INSERT INTO tbl_ms_hist_contrasenas
 (COD_USR, CONTRASENA) 
 VALUES (1, 'a20f0e44c7a2b7d4d2d3cc050a170a85');
 
--- modulo cuentas
+
+/* -------------------------------------------------------------------- MODULO DE CUENTAS ------------------------------------------ */
 INSERT INTO tbl_clasificaciones
 (NATURALEZA) 
 VALUES ('Activo');
@@ -77,7 +78,9 @@ INSERT INTO tbl_estados_subcuentas
 VALUES (1, 'INGRESADA');
 
 
-/* MODULO CONTABLE */
+
+
+/* -------------------------------------------------------------------- MODULO CONTABLE ------------------------------------------ */
 INSERT INTO tbl_libros_diarios
 (COD_CUENTA, COD_SUBCUENTA, COD_ESTADO, NUM_SUBCUENTA, NOM_SUBCUENTA, SAL_DEBE, SAL_HABER, FEC_LIBDIARIO) 
 VALUES (1, 1, 1, '1.1.1', 'Efectivo', 0, 250000, '2022-05-12');
