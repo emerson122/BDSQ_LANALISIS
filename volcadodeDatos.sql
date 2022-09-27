@@ -1,15 +1,18 @@
+/* Modulo de seguridad
+Modulo de cuentas
+Modulo contable
+Modulo de mantenimiento*/
 /*   Insertar datos  */
-
+use systemhtours;
 /* -------------------------------------------------------------------- MODULO DE SEGURIDAD ------------------------------------------ */
 INSERT INTO tbl_ms_roles
 (ROL, DES_ROL) 
 VALUES ('Administrador', 'Usuario con todo los privilegios');
 
 
-
 INSERT INTO tbl_ms_usr
 (USR, NOM_USR, EST_USR, COD_ROL, FEC_ULT_CONN, PREG_RES, PRIMER_ACC, CORREO) 
-VALUES ('USUARIO1', 'Earl Valdez', 'NUEVO', 1, '2022-09-19', 1, 1, 'evaldez@gmail.com');
+VALUES ('USUARIO1', 'Earl Valdez', 'NUEVO', 1, now(), 1, 1, 'evaldez@gmail.com');
 
 
 
@@ -33,7 +36,7 @@ VALUES (1, 1, '0', '0', '0', '1');
 
 INSERT INTO tbl_roles_objetos
 ( COD_OBJETO, PER_EDICION, PER_ELIMINAR, PER_ACTUALIZAR, FEC_CREACION, CREADO_POR, FEC_MODIFICACION, MOD_POR) 
-VALUES ( 1, '1', '1', '1', '2022-09-09', 'USUARIO1', '2022-09-19', 'USUARIO1');
+VALUES ( 1, '1', '1', '1', now(), 'USUARIO1', now(), 'USUARIO1');
 
 INSERT INTO tbl_ms_parametros
 (PARAMETRO, VALOR, COD_USR, FEC_CREACION, FEC_MODIFICACION) 
@@ -42,7 +45,7 @@ VALUES ('impuesto', '15', 1, '2022-11-06', '2022-11-07');
 
 INSERT INTO  tbl_ms_bitacoras
 (FEC_REGISTRO, USR_REGISTRA, COD_USR, ACC_SISTEMA, DES_BITACORA, COD_OBJETO) 
-VALUES ('2022-11-06', 'USUARIO1', 1, 'DELETE', 'BORRADO_INDEBIDO', 1);
+VALUES (now(), 'USUARIO1', 1, 'DELETE', 'BORRADO_INDEBIDO', 1);
 
 
 INSERT INTO tbl_ms_hist_contrasenas
@@ -57,7 +60,7 @@ VALUES ('Activo');
 
 INSERT INTO tbl_periodos
 (COD_USUARIO, FEC_PERIODO, NOM_PERIODO, FEC_INI, FEC_FIN, ESTADO) 
-VALUES (1, '2022-19-9', 'Periodo-2020-ene-1-001', '2022-01-01', '2022-12-31', 'Activo');
+VALUES (1, now(), 'Periodo-2020-ene-1-001', '2022-01-01', '2022-12-31', 'Activo');
 
 
 INSERT INTO tbl_cuentas
@@ -83,34 +86,29 @@ VALUES (1, 'INGRESADA');
 /* -------------------------------------------------------------------- MODULO CONTABLE ------------------------------------------ */
 INSERT INTO tbl_libros_diarios
 (COD_CUENTA, COD_SUBCUENTA, COD_ESTADO, NUM_SUBCUENTA, NOM_SUBCUENTA, SAL_DEBE, SAL_HABER, FEC_LIBDIARIO) 
-VALUES (1, 1, 1, '1.1.1', 'Efectivo', 0, 250000, '2022-05-12');
+VALUES (1, 1, 1, '1.1.1', 'Efectivo', 0, 250000, now());
 
 
 INSERT INTO tbl_comprobantes
 (COD_LIBDIARIO, FEC_COMPROBANTE, COMPROBANTE, DES_COMPROBANTE) 
-VALUES (1, '2022-05-12', 'ubicaciion', 'comprobante de pago');
+VALUES (1, now(), 'ubicaciion', 'comprobante de pago');
 -- SE LE HACE UN UPDATE A ESTA SUBCUENTA QUE SE INGRESO 
 
 INSERT INTO tbl_libros_mayores
 (COD_CUENTA, COD_CLASIFICACION, COD_PERIODO, COD_ESTCUENTA, NUM_CUENTA, NOM_CUENTA, SAL_DEBE, SAL_HABER, FEC_LIBMAYOR) 
-VALUES (1, 1, 1, 1, '1.1', 'Caja', 0, 	5000, '2022-06-12');
+VALUES (1, 1, 1, 1, '1.1', 'Caja', 0, 	5000, now());
 
 INSERT INTO tbl_balances_generales
 (COD_LIBMAYOR, EMPRESA, FEC_BALANCE, TOT_ACTIVO, TOT_PASIVO, TOT_PATRIMONIO) 
-VALUES (1, 'HTOURS', '2022-06-31', 0, 255000, 0);
+VALUES (1, 'HTOURS', now(), 0, 255000, 0);
 
 INSERT INTO tbl_saldos_balances
 (COD_BALANCE, FEC_SALDOS, TOT_ACTIVO, TOT_PASPAT) 
-VALUES (1, '2022-06-31', 0, 255000);
+VALUES (1, now(), 0, 255000);
 
 
 
 INSERT INTO tbl_estados_resultados
 (COD_LIBMAYOR, COD_PERIODO, COD_PARAMETRO, EMPRESA, FEC_ESTADO, VEN_NETAS, COS_VENTAS, UTI_BRUTA, TOT_GASTOS, UTI_ANTIMP, IMP_UTILIDAD, UTI_NETA) 
-VALUES (1, 1, 1, 'HTOURS', '2022-06-31', 50000, 10000, 40000, 5000, 10000, 	5250, 29750);
-
-
-
-
-
+VALUES (1, 1, 1, 'HTOURS', now(), 50000, 10000, 40000, 5000, 10000, 	5250, 29750);
 
