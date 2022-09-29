@@ -212,7 +212,7 @@ ALTER TABLE `tbl_permisos`
 ALTER TABLE `tbl_ms_parametros`
   ADD CONSTRAINT `FK_PARAMUSR` FOREIGN KEY (`COD_USR`) REFERENCES `tbl_ms_usr` (`COD_USR`) ON DELETE CASCADE;
   
-  /*..................................MODULO DE CUENTAS........................................*/
+/*..................................MODULO DE CUENTAS........................................*/
 /*............................LA ALEXA Y EL KEVIN............................................*/
 /*..............................1-CREAR CUENTA...............................................*/
 /*..............................1.1-CLASIFICACION............................................*/
