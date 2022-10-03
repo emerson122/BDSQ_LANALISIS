@@ -89,7 +89,7 @@ Create table TBL_MS_BITACORAS (
 
 -- ////////////////////////////////////////////////////////
 
-tbl_ms_usr
+
 
 
 CREATE TABLE `TBL_MS_PREG` (
