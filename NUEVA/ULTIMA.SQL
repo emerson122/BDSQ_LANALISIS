@@ -9,7 +9,6 @@ USE systemhtours2;
 -- ///////////////////////////////////////////////////////////
 CREATE TABLE TBL_PERSONAS(
   COD_PERSONA       BIGINT PRIMARY KEY AUTO_INCREMENT       COMMENT 'CODIGO DE LA PERSONA'
-  ,IDENTIDAD               VARCHAR(255) NOT NULL            COMMENT 'LA INDENTIDAD DE LA PERSONA'
   ,NOM_PERSONA             VARCHAR(255) NOT NULL            COMMENT 'NOMBRE DE LA PERSONA'
   ,SEX_PERSONA             ENUM('F','M') NOT NULL           COMMENT 'SEXO DE LA PERSONA'
   ,IND_CIVIL               ENUM('S','C','D','V') NOT NULL   COMMENT 'ESTADO CIVIL DE LA PERSONA'
