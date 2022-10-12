@@ -12,7 +12,6 @@ call PRC_PERSONAS('', '', '', '', '', '', '', '', '', 4, 1);
 
 /* Seleccionar una Persona */
 call PRC_PERSONAS('', '', '', '', '', '', '', '', '', 5, 1);
-
 /* --------------------------------------------------------------------------- */
 /* insertar Clasificacion */
 call PRC_CLASIFICACIONES('activo', 1, '');
