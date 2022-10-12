@@ -18,11 +18,12 @@ call PRC_PERSONAS('', '', '', '', '', '', '', '', '', 5, 1);
 call PRC_CLASIFICACIONES('activo', 1, '');
 call PRC_CLASIFICACIONES('pasivo', 1, '');
 call PRC_CLASIFICACIONES('patrimonio', 1, '');
-call PRC_CLASIFICACIONES('INGRESO', 1, '');
-call PRC_CLASIFICACIONES('GASTO', 1, '');
 call PRC_CLASIFICACIONES('DESCUENTO_I', 1, '');
 call PRC_CLASIFICACIONES('DESCUENTO_G', 1, '');
+-- call PRC_CLASIFICACIONES('INGRESO', 1, '');
+call PRC_CLASIFICACIONES('GASTOS', 1, '');
 call PRC_CLASIFICACIONES('VENTAS', 1, '');
+call PRC_CLASIFICACIONES('SUELDOS', 1, '');
 
 /* actualizar Clasificacion */
 call PRC_CLASIFICACIONES('Activo', 2, 1);
