@@ -18,6 +18,11 @@ call PRC_PERSONAS('', '', '', '', '', '', '', '', '', 5, 1);
 call PRC_CLASIFICACIONES('activo', 1, '');
 call PRC_CLASIFICACIONES('pasivo', 1, '');
 call PRC_CLASIFICACIONES('patrimonio', 1, '');
+call PRC_CLASIFICACIONES('INGRESO', 1, '');
+call PRC_CLASIFICACIONES('GASTO', 1, '');
+call PRC_CLASIFICACIONES('DESCUENTO_I', 1, '');
+call PRC_CLASIFICACIONES('DESCUENTO_G', 1, '');
+call PRC_CLASIFICACIONES('VENTAS', 1, '');
 
 /* actualizar Clasificacion */
 call PRC_CLASIFICACIONES('Activo', 2, 1);
@@ -34,7 +39,8 @@ call PRC_CLASIFICACIONES('', 5, 1);
 
 /*Insertar cuenta generando Catalago de cuenta*/
 call INS_CUENTAS('activo', 'bancos', 1);
-call INS_CUENTAS('activo', 'efectivo', 2);
+call INS_CUENTAS('PASIVO', 'PROVEEDORES', 2);
+CALL INS_CUENTAS('INGRESO','Ventas',1)
 
 /* Actualizar Cuenta */
 call PRC_CUENTAS(1, 'Bancos', '1.1', 2, 1);
@@ -139,5 +145,5 @@ CALL INS_BAL_GENERAL('HTOURS', 1,'PASIVO' , 2);
 /* BALANCE GENERAL PATRIMONIOS */
 CALL INS_BAL_GENERAL('HTOURS', 1,'PATRIMONIO', 3);
 
-call PRC_ms_patametros(1, '200', 1, 1, 1);
+CALL PRC_ms_patametros('IMP_UTILIDAD', '0.15', 1, 1, '');
 
