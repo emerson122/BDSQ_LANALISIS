@@ -40,6 +40,19 @@ app.get(["/balance", "/Leer"],(req, res)=>{
     });  
     console.log('Datos leidos correctamente');
 });
+// leer 
+app.get(["/estado", "/Leer"],(req, res)=>{
+  const sql = `CALL PRC_ESTADOS_RESULTADOS(1)`
+  conexion.query(sql,(error,results)=>{
+      if(error) throw error;
+      if(results.length>0){
+          res.json(results[0]);
+      }else{
+          res.send('No se pudo obtener resultados')
+      }
+  });  
+  console.log('Datos leidos correctamente');
+});
 
 
 app.listen(app.set('port'),()=>{
