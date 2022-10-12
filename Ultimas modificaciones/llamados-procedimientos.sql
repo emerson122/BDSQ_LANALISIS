@@ -19,11 +19,10 @@ call PRC_CLASIFICACIONES('pasivo', 1, '');
 call PRC_CLASIFICACIONES('patrimonio', 1, '');
 call PRC_CLASIFICACIONES('DESCUENTO_I', 1, '');
 call PRC_CLASIFICACIONES('DESCUENTO_G', 1, '');
--- call PRC_CLASIFICACIONES('INGRESO', 1, '');
 call PRC_CLASIFICACIONES('GASTOS', 1, '');
 call PRC_CLASIFICACIONES('VENTAS', 1, '');
 call PRC_CLASIFICACIONES('SUELDOS', 1, '');
-call PRC_CLASIFICACIONES('GASTOSV', 1, ''); --GASTO PARA PRODUCIR UNA VENTA
+call PRC_CLASIFICACIONES('GASTOSV', 1, ''); -- GASTO PARA PRODUCIR UNA VENTA
 
 /* actualizar Clasificacion */
 call PRC_CLASIFICACIONES('Activo', 2, 1);
@@ -118,6 +117,7 @@ CALL PRC_LIBDIARIO(1,'bancos', 'EFECTIVO', 2000, 0, 1, 1);
 CALL PRC_LIBDIARIO(1,'bancos', '', 2000, 0, 2, 1);
 
 CALL PRC_LIBDIARIO(1,'bancos', '', 2000, 0, 2, 1);
+
 
 /* ------------------------------------------------------------------ */
 
