@@ -40,7 +40,7 @@ call PRC_CLASIFICACIONES('', 5, 1);
 /*Insertar cuenta generando Catalago de cuenta*/
 call INS_CUENTAS('activo', 'bancos', 1);
 call INS_CUENTAS('PASIVO', 'PROVEEDORES', 2);
-CALL INS_CUENTAS('VENTAS','Ventas de viajes',1)
+CALL INS_CUENTAS('VENTAS','Ventas de viajes',1);
 
 /* Actualizar Cuenta */
 call PRC_CUENTAS(1, 'Bancos', '1.1', 2, 1);
@@ -93,7 +93,7 @@ CALL PRC_OBJETOS('HOME', 'PANTALLA PRINCIPAL', 'PANTALLA', 1, '');
 CALL PRC_OBJETOS('HOME', 'PANTALLA PRINCIPAL', 'PANTALLA', 4, '');
 /* ------------------------------------------------------------------ */
 /*INSERTAR Usuario CON CORREO PREGUNTAS Y RESPUESTAS*/
-CALL PROC_MS_USR_INSERTAR('USUARIO1', 'HERNESTO VALLADARES', 1, '2022-02-02', 1, 1, 'HEVA@gmail.com', 'Cual es tu color favorito?','verde' , 'secreta1');
+CALL PROC_MS_USR_INSERTAR('USUARIO1',1, 'HERNESTO VALLADARES', 1, '2022-02-02', 1, 1, 'HEVA@gmail.com', 'Cual es tu color favorito?','verde' , 'secreta1');
 /*SELECCIONAR USUARIOS */
 CALL PROC_MS_USR_SELECCIONAR();
 /* ------------------------------------------------------------------ */
@@ -151,12 +151,12 @@ CALL INS_BAL_GENERAL('HTOURS', 1,'PATRIMONIO', 3);
 /* ESTADO DE RESULTADO */
 CALL PRC_ms_patametros('IMP_UTILIDAD', '0.15', 1, 1, '');
 
-CALL PRC_LIBDIARIO(1,'VENTAS VIAJES', '', 2000, 0, 2, 1);
-CALL PRC_LIBDIARIO(1,'VENTAS VIAJES', '', 3000, 0, 2, 1);
+CALL PRC_LIBDIARIO(1,'VENTAS DE VIAJES', '', 2000, 0, 2, 1);
+CALL PRC_LIBDIARIO(1,'VENTAS DE VIAJES', '', 3000, 0, 2, 1);
 
 /* INSERTAR EN LIBRO MAYOR CUENTAS DE LIBRO DIARIO */
 CALL PRC_LIBROS_MAYORES(1, 'BANCOS', 0, 0, 1, 1);
-CALL PRC_LIBROS_MAYORES(1, 'VENTAS VIAJES', 0, 0, 1, 1);
+CALL PRC_LIBROS_MAYORES(1, 'VENTAS DE VIAJES', 0, 0, 1, 1);
 
 
 /* INSERTAR CUENTAS DE ESTADO DE RESULTADO*/
@@ -175,3 +175,4 @@ CALL PRC_LIBROS_MAYORES(1, 'SUELDOS  EMPLEADOS', 0, 600, 6, 1);
 CALL PRC_LIBROS_MAYORES(1, 'GASTOS EN  VENTAS', 0, 50, 6, 1);
 
 
+CALL PRC_ESTADOS_RESULTADOS(1);
