@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /* 
     PB  = PARAMETRO BIGINT
  -- PV  = PARAMETRO VARCHAR
@@ -44,6 +45,10 @@ END;
 
 
 
+=======
+
+-- INSERT Y  SELECTDE LIBRO DIARIO
+>>>>>>> Stashed changes
 CREATE PROCEDURE PRC_LIBDIARIO(
 
    IN PV_NOM_CUENTA VARCHAR(255)
@@ -52,7 +57,10 @@ CREATE PROCEDURE PRC_LIBDIARIO(
   ,IN PV_SALDO_HABER INT
   ,IN PV_OPERACION VARCHAR(1)
   , IN PB_FILA BIGINT 
+<<<<<<< Updated upstream
   , IN PF_FEC_BUSCAR DATE
+=======
+>>>>>>> Stashed changes
 )
 BEGIN
 DECLARE V_CODCUENTA,V_CODSUBCUENTA,V_CODESTCUENTA BIGINT;
@@ -84,19 +92,26 @@ SELECT * FROM TBL_LIBROS_DIARIOS;
 
 ELSEIF PV_OPERACION = 5 THEN
 SELECT * FROM TBL_LIBROS_DIARIOS WHERE COD_LIBDIARIO = PB_FILA;
+<<<<<<< Updated upstream
 
 ELSEIF PV_OPERACION = 6 THEN 
 SELECT * FROM TBL_LIBRO_DIARIO where FEC_LIBDIARIO BETWEEN PF_FEC_BUSCAR AND DATE_ADD(PF_FEC_BUSCAR,INTERVAL 1 month);
 
+=======
+>>>>>>> Stashed changes
 END IF;
 COMMIT;
 END;
 
 
+<<<<<<< Updated upstream
 
 
 
 
+=======
+-- UPDATE DE LIBRO DIARIO 
+>>>>>>> Stashed changes
 CREATE PROCEDURE UPD_LIBDIARIO(
  IN PB_COD_CUENTA    BIGINT                               
 ,IN PB_COD_SUBCUENTA BIGINT                                                        
@@ -105,7 +120,10 @@ CREATE PROCEDURE UPD_LIBDIARIO(
 ,IN PB_NOM_SUBCUENTA VARCHAR(255)                    
 ,IN PB_SAL_DEBE    DECIMAL (8,2)                    
 ,IN PB_SAL_HABER   DECIMAL (8,2)                     
+<<<<<<< Updated upstream
 ,IN PB_FEC_LIBDIARIO DATETIME    
+=======
+>>>>>>> Stashed changes
 ,IN PB_FILA BIGINT
 )
 BEGIN
@@ -116,6 +134,10 @@ WHERE COD_LIBDIARIO = PB_FILA;
 COMMIT;
 END;
 
+<<<<<<< Updated upstream
+=======
+-- DELETE DE LIBRO DIARIO 
+>>>>>>> Stashed changes
 CREATE PROCEDURE DEL_LIBDIARIO(
 PB_CODLIBDIARIO BIGINT
 )
@@ -128,6 +150,7 @@ END;
 
 
 
+<<<<<<< Updated upstream
 
 
 
@@ -280,3 +303,5 @@ END;
 
 
 
+=======
+>>>>>>> Stashed changes
