@@ -97,6 +97,12 @@ CALL PROC_MS_USR_INSERTAR('USUARIO1',1, 'HERNESTO VALLADARES', 1, '2022-02-02', 
 /*SELECCIONAR USUARIOS */
 CALL PROC_MS_USR_SELECCIONAR();
 /* ------------------------------------------------------------------ */
+/*
+Parametros del sistema
+*/
+Call PRC_MS_PARAMETROS('ADMIN_INTENTOS_INVALIDOS', '3', 1, now(), 1, '');
+Call PRC_MS_PARAMETROS('ADMIN_CANT_PREG', '3', 1, now(), 1, '');
+Call PRC_MS_PARAMETROS('ADMIN_PREGUNTAS', '3', 1, now(), 1, '');
 
 /* INSERTAR PERIODO */
 CALL PRC_PERIODOS(1, 'PERIODO-ENE-2022-001', '2022-01-01', '2022-02-01', 'ACTIVO', 1, 1);
