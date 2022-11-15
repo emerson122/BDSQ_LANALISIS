@@ -24,7 +24,7 @@ CALL PROC_MS_USR_INSERTAR('Usuario_Auto_Registrado','Usuario Autoregisro Externo
  
 Call PRC_MS_PARAMETROS('ADMIN_INTENTOS_INVALIDOS', '3', 1, now(), 1, '');
 Call PRC_MS_PARAMETROS('ADMIN_CANT_PREG', '3', 1, now(), 1, '');
-Call PRC_MS_PARAMETROS('ADMIN_PREGUNTAS', '2', 1, now(), 1, ''); 
+Call PRC_MS_PARAMETROS('ADMIN_PREGUNTAS', '3', 1, now(), 1, ''); 
 Call PRC_MS_PARAMETROS('IMP_UTILIDAD', '0.15', 1, now(), 1, '');
 Call PRC_MS_PARAMETROS('NOM_EMPRESA', 'HTOURS', 1, now(), 1, '');
 /*
