@@ -1135,6 +1135,12 @@ not in ( (
         )
     ) and COD_USR NOT IN ( SELECT COD_USER
             FROM tbl_personas);
+ELSEIF PV_OPERACION = 8 THEN
+/*ELIMINACION LOGICA*/
+UPDATE tbl_personas 
+SET  EST_USR = 'INACTIVO' 
+WHERE COD_PERSONA = PI_FILA
+;
 END IF;
 COMMIT;
 END;
