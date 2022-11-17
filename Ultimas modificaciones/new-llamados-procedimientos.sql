@@ -55,6 +55,15 @@ Call PRC_MS_PARAMETROS('NOM_EMPRESA', 'HTOURS', 1, now(), 1, '');
 ----------------------------------------------------------------
 */
 
+
+/*
+PERMISOS ROL DE ADMINISTRADOR
+*/
+call PRC_INSERT_PERMISOS(1, 5, '1', '1', '1', '1'); -- TODOS LOS PERMISOS PARA ROL ADMINISTRADOR EN PANTALLA DE PERIODO
+call PRC_INSERT_PERMISOS(1, 4, '1', '1', '1', '1'); -- TODOS LOS PERMISOS PARA ROL ADMINISTRADOR EN PANTALLA DE PERSONAS
+
+
+
 /*
 * Fin de datos necesarios para funcionamiento sistema Laravel
 */
