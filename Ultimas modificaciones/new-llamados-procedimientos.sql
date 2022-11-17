@@ -66,3 +66,14 @@ Call PRC_MS_PARAMETROS('NOM_EMPRESA', 'HTOURS', 1, now(), 1, '');
 * Logica de Contabilidad
 */
 
+
+/*Clasificaciones de las cuentas*/
+call PRC_CLASIFICACIONES('Activo', '1', 0);
+call PRC_CLASIFICACIONES('Pasivo', '1', 0);
+call PRC_CLASIFICACIONES('Patrimonio', '1', 0);
+
+call PRC_GRUPOS('Activo', '1', 'Activo Corriente', '1', 1);
+call PRC_GRUPOS('Activo', '2', 'Activo No Corriente', '1', 1);
+call PRC_GRUPOS('Pasivo', '1', 'Pasivo Corriente', '1', 1);
+call PRC_GRUPOS('Pasivo', '2', 'Pasivo No Corriente', '1', 1);
+
