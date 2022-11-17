@@ -72,8 +72,30 @@ call PRC_CLASIFICACIONES('Activo', '1', 0);
 call PRC_CLASIFICACIONES('Pasivo', '1', 0);
 call PRC_CLASIFICACIONES('Patrimonio', '1', 0);
 
+/*
+Grupos de Cuentas
+*/
 call PRC_GRUPOS('Activo', '1', 'Activo Corriente', '1', 1);
 call PRC_GRUPOS('Activo', '2', 'Activo No Corriente', '1', 1);
 call PRC_GRUPOS('Pasivo', '1', 'Pasivo Corriente', '1', 1);
 call PRC_GRUPOS('Pasivo', '2', 'Pasivo No Corriente', '1', 1);
 
+
+/*
+Cuentas
+
+Activo Corriente
+*/
+call INS_CUENTAS('Activo', 'Bancos', '1', '1');
+call INS_CUENTAS('Activo', 'Efectivo', '1', '1');
+call INS_CUENTAS('Activo', 'Caja Chica', '1', '1');
+call INS_CUENTAS('Activo', 'Caja General', '1', '1');
+call INS_CUENTAS('Activo', 'Deudores Varios', '1', '1');
+call INS_CUENTAS('Activo', 'Rentas Por Cobrar', '1', '1');
+
+/*
+Activo NO Corriente
+*/
+call INS_CUENTAS('Activo', 'Terrenos', '2', '1');
+call INS_CUENTAS('Activo', 'Edificios', '2', '1');
+call INS_CUENTAS('Activo', 'Mobiliario y Equipo', '2', '1');
