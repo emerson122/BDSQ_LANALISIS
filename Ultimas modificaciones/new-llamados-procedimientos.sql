@@ -18,6 +18,20 @@ CALL PRC_OBJETOS('PERSONAS', 'PANTALLA DE GESTION DE PERSONAS', 'PANTALLA', 1, '
 CALL PRC_OBJETOS('PERIODO', 'PANTALLA DE GESTION DE PERIODO', 'PANTALLA', 1, '');
 
 
+
+/*Ingresar aqui sus pantallaaaass*/
+
+
+
+
+
+
+
+
+
+
+
+
 /*Ingresar un Usuario Con control absoluto*/
 CALL PROC_MS_USR_INSERTAR('ROOT','TecnoBot ', 1, '2022-02-02', 1, 1, 'tecnobot@gmail.com', 'Cual es tu color favorito?','verde' , ' 0a1b7c9440e4afe5e31ea6a190490bd3');
 CALL PROC_MS_USR_INSERTAR('MANT','TecnoBot Mantenimiento', 3, '2022-02-02', 1, 1, 'tecnobot@gmail.com', 'Cual es el mantenimiento Favorito?','programacion' , '137772b7ecb263dc707ab445c56c0181');
@@ -44,3 +58,11 @@ Call PRC_MS_PARAMETROS('NOM_EMPRESA', 'HTOURS', 1, now(), 1, '');
 /*
 * Fin de datos necesarios para funcionamiento sistema Laravel
 */
+
+
+
+
+/*
+* Logica de Contabilidad
+*/
+
