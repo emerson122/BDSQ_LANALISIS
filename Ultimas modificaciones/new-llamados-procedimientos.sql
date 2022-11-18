@@ -108,3 +108,12 @@ Activo NO Corriente
 call INS_CUENTAS('Activo', 'Terrenos', '2', '1');
 call INS_CUENTAS('Activo', 'Edificios', '2', '1');
 call INS_CUENTAS('Activo', 'Mobiliario y Equipo', '2', '1');
+
+
+
+/*
+
+iNSERTAR SUBCUENTA
+*/
+
+CALL PRC_SUBCUENTAS(1, '1', 'EFECTIVO', 'BANCOS', 1, 1);
