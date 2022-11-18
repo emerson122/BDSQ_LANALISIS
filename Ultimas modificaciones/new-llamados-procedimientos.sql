@@ -55,6 +55,15 @@ Call PRC_MS_PARAMETROS('NOM_EMPRESA', 'HTOURS', 1, now(), 1, '');
 ----------------------------------------------------------------
 */
 
+
+/*
+PERMISOS ROL DE ADMINISTRADOR
+*/
+call PRC_INSERT_PERMISOS(1, 5, '1', '1', '1', '1'); -- TODOS LOS PERMISOS PARA ROL ADMINISTRADOR EN PANTALLA DE PERIODO
+call PRC_INSERT_PERMISOS(1, 4, '1', '1', '1', '1'); -- TODOS LOS PERMISOS PARA ROL ADMINISTRADOR EN PANTALLA DE PERSONAS
+
+
+
 /*
 * Fin de datos necesarios para funcionamiento sistema Laravel
 */
@@ -99,3 +108,12 @@ Activo NO Corriente
 call INS_CUENTAS('Activo', 'Terrenos', '2', '1');
 call INS_CUENTAS('Activo', 'Edificios', '2', '1');
 call INS_CUENTAS('Activo', 'Mobiliario y Equipo', '2', '1');
+
+
+
+/*
+
+iNSERTAR SUBCUENTA
+*/
+
+CALL PRC_SUBCUENTAS(1, '1', 'EFECTIVO', 'BANCOS', 1, 1);
