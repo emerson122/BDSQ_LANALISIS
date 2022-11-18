@@ -1,7 +1,7 @@
 /*
 Datos necesarios para el funcionamiento del sistema Laravel
 */
-
+USE systemhtours;
 /*Rol del Sistema*/
 call PRC_MS_INSERT_ROLES('Administrador', 'Control Absoluto del sistema');
 call PRC_MS_INSERT_ROLES('DEFAULT', 'Rol por defecto con el que se crea un usuario');
