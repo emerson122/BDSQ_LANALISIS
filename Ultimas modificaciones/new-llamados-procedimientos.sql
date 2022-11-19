@@ -1,14 +1,12 @@
 /*
 Datos necesarios para el funcionamiento del sistema Laravel
 */
-
 /*Rol del Sistema*/
 call PRC_MS_INSERT_ROLES('Administrador', 'Control Absoluto del sistema');
 call PRC_MS_INSERT_ROLES('DEFAULT', 'Rol por defecto con el que se crea un usuario');
 
 -- NO UTILIZAR EN PRODUCCION el ROL DEVS, Colocarse este Rol para poder acceder al sistema o el rol administrador
 call PRC_MS_INSERT_ROLES('MANTENIMIENTO', 'USUARIO CODIFICADOR');
-
 
 /*Ingresar un Objeto*/
 CALL PRC_OBJETOS('HOME', 'PANTALLA PRINCIPAL', 'PANTALLA', 1, '');
