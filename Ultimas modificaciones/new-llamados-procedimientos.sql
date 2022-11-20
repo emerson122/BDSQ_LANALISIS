@@ -96,6 +96,7 @@ call PRC_GRUPOS('Activo', '1', 'Activo Corriente', '1', 1);
 call PRC_GRUPOS('Activo', '2', 'Activo No Corriente', '1', 1);
 call PRC_GRUPOS('Pasivo', '1', 'Pasivo Corriente', '1', 1);
 call PRC_GRUPOS('Pasivo', '2', 'Pasivo No Corriente', '1', 1);
+call PRC_GRUPOS('Patrimonio', '1', 'Patrimonio', '1', 1);
 
 
 /*
