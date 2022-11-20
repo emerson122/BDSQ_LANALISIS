@@ -120,8 +120,22 @@ call INS_CUENTAS('Activo', 'Mobiliario y Equipo', '2', '1');
 
 
 /*
+Descuento
+*/
+call INS_CUENTAS('DESCUENTO_I', 'DESCUENTOS VIAJES', '1', '1');
+call INS_CUENTAS('DESCUENTO_G', 'DESCUENTOS COMPRAS', '2', '1');
+call INS_CUENTAS('GASTOS', 'GASTOS  ADMINISTRATIVOS','3', '1');
+call INS_CUENTAS('SUELDOS', 'SUELDOS  EMPLEADOS','4', '1');
+call INS_CUENTAS('GASTOSV', 'GASTOS EN  VENTAS','5', '1');
+
+/*
 
 iNSERTAR SUBCUENTA
 */
 
 CALL PRC_SUBCUENTAS(1, '1', 'EFECTIVO', 'BANCOS', 1, 1);
+
+
+
+
+
