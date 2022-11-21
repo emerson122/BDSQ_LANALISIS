@@ -1,6 +1,7 @@
--- descomentar para crear la base de datos 
+/* BD_SYSTEMAHTOURS BY TECNOBOT */
 
---CREATE DATABASE systemhtours;
+DROP DATABASE IF EXISTS  systemhtours;
+CREATE  DATABASE systemhtours;
 USE systemhtours;
 
 /*MODULO DE SEGURIDAD */
