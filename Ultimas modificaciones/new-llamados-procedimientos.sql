@@ -115,36 +115,49 @@ Cuentas
 Activo Corriente
 */
 call INS_CUENTAS('Activo', 'Bancos', '1', '1');
-call INS_CUENTAS('Activo', 'Efectivo', '1', '1');
-call INS_CUENTAS('Activo', 'Caja Chica', '1', '1');
-call INS_CUENTAS('Activo', 'Caja General', '1', '1');
-call INS_CUENTAS('Activo', 'Deudores Varios', '1', '1');
-call INS_CUENTAS('Activo', 'Rentas Por Cobrar', '1', '1');
+call INS_CUENTAS('Activo', 'Efectivo', '5', '1');
+call INS_CUENTAS('Activo', 'Caja Chica', '6', '1');
 
 /*
 Activo NO Corriente
 */
-call INS_CUENTAS('Activo', 'Terrenos', '2', '1');
-call INS_CUENTAS('Activo', 'Edificios', '2', '1');
-call INS_CUENTAS('Activo', 'Mobiliario y Equipo', '2', '1');
+call INS_CUENTAS('Activo', 'Terrenos', '1', '2');
+call INS_CUENTAS('Activo', 'Edificios', '2', '2');
+call INS_CUENTAS('Activo', 'Mobiliario', '3', '2');
 
+
+/*
+Pasivo Corrientes
+*/
+
+call INS_CUENTAS('PASIVO', 'proveedores', '1', '3');
+
+/*
+Pasivo No corrientes
+*/
+call INS_CUENTAS('PASIVO', 'acreedores', '2', '4');
+
+/*
+Patrimonio
+*/
+call INS_CUENTAS('Patrimonio', 'CAPITAL', '1', '5');
 
 
 /*
 Descuento
 */
-call INS_CUENTAS('DESCUENTO_I', 'DESCUENTOS VIAJES', '1', '1');
-call INS_CUENTAS('DESCUENTO_G', 'DESCUENTOS COMPRAS', '2', '1');
-call INS_CUENTAS('GASTOS', 'GASTOS  ADMINISTRATIVOS','3', '1');
-call INS_CUENTAS('SUELDOS', 'SUELDOS  EMPLEADOS','4', '1');
-call INS_CUENTAS('GASTOSV', 'GASTOS EN  VENTAS','5', '1');
+-- call INS_CUENTAS('DESCUENTO_I', 'DESCUENTOS VIAJES', '1', '1');
+-- call INS_CUENTAS('DESCUENTO_G', 'DESCUENTOS COMPRAS', '2', '1');
+-- call INS_CUENTAS('GASTOS', 'GASTOS  ADMINISTRATIVOS','3', '1');
+-- call INS_CUENTAS('SUELDOS', 'SUELDOS  EMPLEADOS','4', '1');
+-- call INS_CUENTAS('GASTOSV', 'GASTOS EN  VENTAS','5', '1');
 
 /*
 
 iNSERTAR SUBCUENTA
 */
 
-CALL PRC_SUBCUENTAS(1, '1', 'EFECTIVO', 'BANCOS', 1, 1);
+-- CALL PRC_SUBCUENTAS(1, '1', 'EFECTIVO', 'BANCOS', 1, 1);
 
 
 
