@@ -2410,7 +2410,7 @@ VERSION: 1.0
  -- PDB = PARAMETRO DOUBLE
  -- PMB = PARAMETRO MEDIUMBLOB
 */
-/*---------------TRIGGER BITACORA--------------------------*/
+/*---------------TRIGGER BITACORA--------------------------*//* 
 DROP TRIGGER IF EXISTS Bitacora;
 CREATE TRIGGER Bitacora after insert on TBL_MS_USR
 for each row
@@ -2419,7 +2419,7 @@ declare cont BIGINT;
 set cont = (SELECT COUNT(*) FROM TBL_OBJETOS);
 insert into TBL_MS_BITACORAS (FEC_REGISTRO, USR_REGISTRA, COD_USR, ACC_SISTEMA, DES_BITACORA,COD_OBJETO)
 values (now(),current_user(), new.COD_USR, new.PRIMER_ACC,new.CORREO,cont);
-END;
+END; */
 /*----------------------------------------------------------*/
 
 
