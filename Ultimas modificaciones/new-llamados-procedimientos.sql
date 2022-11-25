@@ -167,9 +167,34 @@ Descuento
 iNSERTAR SUBCUENTA
 */
 
--- CALL PRC_SUBCUENTAS(1, '1', 'EFECTIVO', 'BANCOS', 1, 1);
+-- -- CALL PRC_SUBCUENTAS(1, '1', 'Bancos', 1,'cheques' );
 
 
+
+-- PRUEBAS FUNCIONAL SOLO TODAS LAS DE INSERT ACTIVOS CORRIENTES Y NO CORRIENTES
+-- LA CLASIFICACION LA TOMA JUNTO CON EL NUMERO DE LA SUBCUENTA, REVISION.
+-- /*  3 SUBCUENTAS DE ACTIVO, GRUPO ACTIVOS CORRIENTES */ 
+-- CALL PRC_SUBCUENTAS(1, 'Cheques', 'Bancos','1.1.1','');
+-- CALL PRC_SUBCUENTAS(1, 'Dinero', 'Efectivo','1.1.5','');
+-- CALL PRC_SUBCUENTAS(1, 'Efectivo', 'Caja Chica','1.1.6','');
+
+
+-- /*  3 SUBCUENTAS DE ACTIVO, GRUPO ACTIVOS NOOO CORRIENTES */ 
+-- CALL PRC_SUBCUENTAS(1, 'Terreno', 'Terrenos','1.2.1','');
+-- CALL PRC_SUBCUENTAS(1, 'entrada', 'Edificios','1.2.2','');
+-- CALL PRC_SUBCUENTAS(1, 'equipo', 'mobiliario','1.2.3','');
+
+
+-- /*  1 SUBCUENTAS DE PASIVO, GRUPO PASIVO CORRIENTE */ 
+-- /*en orden la columna 1 es el correlativo, la 2 es el nombre de la subcuenta,
+-- la 3 es el nombre de la cuenta ya creada en su modulo, la 4 es el numero e esta cuenta*/
+-- CALL PRC_SUBCUENTAS('2',1, 'Empresa x', 'proveedores','2.1.1');
+
+-- /*  1 SUBCUENTAS DE PASIVO, GRUPO PASIVO NOOOOO CORRIENTE */ 
+-- CALL PRC_SUBCUENTAS(1, 'Servicios', 'Acreedores','2.2.2-1','');
+
+-- /*  1 SUBCUENTAS DE PATRIMONIO */ 
+-- CALL PRC_SUBCUENTAS(1, 'Capital social', 'CAPITAL','3.1.1-1','');
 
 
 
