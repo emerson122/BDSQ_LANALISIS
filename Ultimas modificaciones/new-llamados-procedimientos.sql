@@ -45,10 +45,10 @@ CALL PROC_MS_USR_INSERTAR('ROOT','TecnoBot ', 1, '2022-02-02', 1, 1, 'tecnobot@g
 CALL PROC_MS_USR_INSERTAR('MANT','TecnoBot Mantenimiento', 3, '2022-02-02', 1, 1, 'tecnobot@gmail.com', 'Cual es el mantenimiento Favorito?','programacion' , '137772b7ecb263dc707ab445c56c0181');
 CALL PROC_MS_USR_INSERTAR('Usuario_Auto_Registrado','Usuario Autoregisro Externo', 3, '2022-02-02', 1, 1, 'tecnobot@gmail.com', 'Cual es el registro Favorito?','registro' , '137772b7ecb263dc707ab445c56c0181');
 CALL PROC_MS_USR_INSERTAR('TECNOBOT','Pruebas', 1, '2022-02-02', 1, 1, 'tecnobot@gmail.com', 'Cual es el registro Favorito?','registro' , '3e20d73773eab6c39d50b2c074c61a3b');
-call PRC_PERSONAS('TECNOBOT', 'M', 26, 'J', '0801-2000-08100', 'S', 33410754, 'C', '1', 0);
+call PRC_PERSONAS('TECNOBOT', 'M', 26, 'J', '0801-2000-08100', 'S', '+504 33410754', 'C', '1', 0);
 call UPD_ESTADOUSR('TECNOBOT', '1');
 /*DATOS DE USUARIO ROOT*/
-call PRC_PERSONAS('ROOT', 'F', 2, 'J', '0801-2000-08100', 'S', 33410754, 'C', '1', 0);
+call PRC_PERSONAS('ROOT', 'F', 2, 'J', '0801-2000-08100', 'S', '+504 33410754', 'C', '1', 0);
 call UPD_ESTADOUSR('ROOT', '1');
 /*
  contrasena de  usuario funcional ROOT:   Xproforeablerentrama109   */
@@ -65,6 +65,7 @@ Call PRC_MS_PARAMETROS('ADMIN_NUM_REGISTROS', '4', "ROOT", now(), 1, ''); -- NUM
 ----------------------------------------------------------------
 */
 
+TRUNCATE table tbl_ms_parametros;
 
 /*
 PERMISOS ROL DE ADMINISTRADOR
