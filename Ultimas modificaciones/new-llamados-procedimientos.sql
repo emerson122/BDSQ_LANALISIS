@@ -65,7 +65,6 @@ Call PRC_MS_PARAMETROS('ADMIN_NUM_REGISTROS', '4', "ROOT", now(), 1, ''); -- NUM
 ----------------------------------------------------------------
 */
 
-TRUNCATE table tbl_ms_parametros;
 
 /*
 PERMISOS ROL DE ADMINISTRADOR
