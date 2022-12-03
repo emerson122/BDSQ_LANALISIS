@@ -61,6 +61,10 @@ Call PRC_MS_PARAMETROS('ADMIN_PREGUNTAS', '2', "ROOT", now(), 1, ''); -- PARAMET
 Call PRC_MS_PARAMETROS('IMP_UTILIDAD', '0.15', "ROOT", now(), 1, ''); -- IMPUESTO 
 Call PRC_MS_PARAMETROS('NOM_EMPRESA', 'HTOURS', "ROOT", now(), 1, ''); -- NOMBRE DE EMPRESA
 Call PRC_MS_PARAMETROS('ADMIN_NUM_REGISTROS', '4', "ROOT", now(), 1, ''); -- NUMERO DE MAXIMO DE REGISTRO POR VISTA (por tabla)
+Call PRC_MS_PARAMETROS('ADMIN_VIG_RECUPERACION', '30m', "ROOT", now(), 1, ''); -- TIEMPO DE VIGENCIA DE RECUPERACION 30 minutos
+Call PRC_MS_PARAMETROS('ADMIN_CORREO', 'systemhtours@gmail.com', "ROOT", now(), 1, ''); -- CORREO DE ENVIO
+Call PRC_MS_PARAMETROS('ADMIN_APP_PASSWORD', 'kmbyyqvcgkxfpluj', "ROOT", now(), 1, ''); -- CONTRASENA DE APLICACION DE CORREO
+-- Call PRC_MS_PARAMETROS('ADMIN_VIG_RECUPERACION', '1d', "ROOT", now(), 1, ''); -- TIEMPO DE VIGENCIA DE RECUPERACION un dia
 /*
 ----------------------------------------------------------------
 */
