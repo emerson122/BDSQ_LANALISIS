@@ -1,8 +1,8 @@
 /* BD_SYSTEMAHTOURS BY TECNOBOT */
 
--- DROP DATABASE IF EXISTS  systemhtours;
--- CREATE  DATABASE systemhtours;
--- USE systemhtours;
+DROP DATABASE IF EXISTS  systemhtours;
+CREATE  DATABASE systemhtours;
+USE systemhtours;
 
 /*MODULO DE SEGURIDAD */
 
